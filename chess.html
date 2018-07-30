@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>象棋</title>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+
+    #chess {
+      margin: 25px;
+      width: 720px;
+      height: 800px;
+      background: url("chess.jpg") no-repeat center;
+      background-size: 678px;
+      position: relative;
+    }
+
+    .row::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .row {
+    }
+
+    .row div {
+      display: inline-block;
+      width: 76px;
+      height: 76px;
+      border-radius: 50px;
+      line-height: 76px;
+      background: #eee;
+      opacity: 0.9;
+      border: 2px solid #ddd;
+      text-align: center;
+      float: left;
+    }
+
+    .row div:hover {
+      border-color: aqua;
+    }
+  </style>
+</head>
+<body>
+<div id="chess">
+  <div class="row row0">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+  </div>
+  <div class="row row1">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+  </div>
+  <div class="row row2">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+  </div>
+  <div class="row row3">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+  </div>
+  <div class="row row4">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+  </div>
+  <div class="row row5">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+  </div>
+  <div class="row row6">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+  </div>
+  <div class="row row7">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+  </div>
+  <div class="row row8">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+  </div>
+  <div class="row row9">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+  </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.js"></script>
+<script>
+  function Chess() {
+    this.chessmen = {
+//保存所有棋子的初始位置坐标
+      redC1: {r: 0, c: 0, x: -144, y: 0, name: '车', color: 'red'},
+      redC2: {r: 0, c: 8, x: -144, y: 0, name: '车', color: 'red'},
+      redM1: {r: 0, c: 1, x: -108, y: 0, name: '马', color: 'red'},
+      redM2: {r: 0, c: 7, x: -108, y: 0, name: '马', color: 'red'},
+      redX1: {r: 0, c: 2, x: -72, y: 0, name: '相', color: 'red'},
+      redX2: {r: 0, c: 6, x: -72, y: 0, name: '相', color: 'red'},
+      redS1: {r: 0, c: 3, x: -36, y: 0, name: '仕', color: 'red'},
+      redS2: {r: 0, c: 5, x: -36, y: 0, name: '仕', color: 'red'},
+      redB2: {r: 0, c: 4, x: 0, y: 0, name: '帅', color: 'red'},
+      redP1: {r: 2, c: 1, x: -180, y: 0, name: '炮', color: 'red'},
+      redP2: {r: 2, c: 7, x: -180, y: 0, name: '炮', color: 'red'},
+      redZ1: {r: 3, c: 0, x: -216, y: 0, name: '兵', color: 'red'},
+      redZ2: {r: 3, c: 2, x: -216, y: 0, name: '兵', color: 'red'},
+      redZ3: {r: 3, c: 4, x: -216, y: 0, name: '兵', color: 'red'},
+      redZ4: {r: 3, c: 6, x: -216, y: 0, name: '兵', color: 'red'},
+      redZ5: {r: 3, c: 8, x: -216, y: 0, name: '兵', color: 'red'},
+
+      blueC1: {r: 9, c: 0, x: -144, y: -36, name: '车', color: 'black'},
+      blueC2: {r: 9, c: 8, x: -144, y: -36, name: '车', color: 'black'},
+      blueM1: {r: 9, c: 1, x: -108, y: -36, name: '马', color: 'black'},
+      blueM2: {r: 9, c: 7, x: -108, y: -36, name: '马', color: 'black'},
+      blueX1: {r: 9, c: 2, x: -72, y: -36, name: '象', color: 'black'},
+      blueX2: {r: 9, c: 6, x: -72, y: -36, name: '象', color: 'black'},
+      blueS1: {r: 9, c: 3, x: -36, y: -36, name: '士', color: 'black'},
+      blueS2: {r: 9, c: 5, x: -36, y: -36, name: '士', color: 'black'},
+      blueB2: {r: 9, c: 4, x: 0, y: -36, name: '将', color: 'black'},
+      blueP1: {r: 7, c: 1, x: -180, y: -36, name: '炮', color: 'black'},
+      blueP2: {r: 7, c: 7, x: -180, y: -36, name: '炮', color: 'black'},
+      blueZ1: {r: 6, c: 0, x: -216, y: -36, name: '卒', color: 'black'},
+      blueZ2: {r: 6, c: 2, x: -216, y: -36, name: '卒', color: 'black'},
+      blueZ3: {r: 6, c: 4, x: -216, y: -36, name: '卒', color: 'black'},
+      blueZ4: {r: 6, c: 6, x: -216, y: -36, name: '卒', color: 'black'},
+      blueZ5: {r: 6, c: 8, x: -216, y: -36, name: '卒', color: 'black'}
+    }
+    // this.init();
+
+    let $chess = $('#chess');
+    $chess.on('mouseenter', '.row div', function () {
+      console.log($(this));
+    })
+  }
+
+  Chess.prototype = {
+    construct: Chess,
+    init: function () {
+      let str = '';
+      for (let el in this.chessmen) {
+
+      }
+
+      $('#chess').html(str);
+    }
+  };
+  const chess = new Chess();
+</script>
+</body>
+</html>
