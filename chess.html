@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>象棋</title>
   <style>
-    body {
+    body * {
       box-sizing: border-box;
     }
 
@@ -26,138 +26,182 @@
     .row {
     }
 
-    .row div {
+    .row > div {
       display: inline-block;
-      width: 76px;
-      height: 76px;
+      width: 80px;
+      height: 80px;
       border-radius: 50px;
-      line-height: 76px;
-      background: #eee;
-      opacity: 0.9;
-      border: 2px solid #ddd;
+      line-height: 68px;
+      /*background: #eee;*/
+      border: 2px solid transparent;
       text-align: center;
       float: left;
     }
 
-    .row div:hover {
-      border-color: aqua;
+    .red,
+    .black {
+      background: #fff;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 40px;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .red::before,
+    .black::before {
+      position: absolute;
+      content: '';
+      top: 4px;
+      left: 4px;
+      width: 62px;
+      height: 62px;
+      border: 1px solid transparent;
+      border-radius: 40px;
+    }
+
+    .red::before {
+      border-color: red;
+    }
+
+    .black::before {
+      border-color: black;
+    }
+
+    .red {
+      color: red;
+      border: 2px solid red;
+    }
+
+    .black {
+      color: black;
+      border: 2px solid black;
+    }
+
+    .row > div:hover {
+      border-color: blue;
     }
   </style>
 </head>
 <body>
 <div id="chess">
   <div class="row row0">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
   <div class="row row1">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
   <div class="row row2">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
   <div class="row row3">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
   <div class="row row4">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
   <div class="row row5">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
   <div class="row row6">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
   <div class="row row7">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
   <div class="row row8">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
   <div class="row row9">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 </div>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script>
   function Chess() {
     this.chessmen = {
@@ -195,27 +239,34 @@
       blueZ3: {r: 6, c: 4, x: -216, y: -36, name: '卒', color: 'black'},
       blueZ4: {r: 6, c: 6, x: -216, y: -36, name: '卒', color: 'black'},
       blueZ5: {r: 6, c: 8, x: -216, y: -36, name: '卒', color: 'black'}
-    }
-    // this.init();
+    };
+    this.$chess = $('#chess');
 
-    let $chess = $('#chess');
-    $chess.on('mouseenter', '.row div', function () {
-      console.log($(this));
-    })
+    this.init();
+
+    let flag = true;
+
+    this.$chess.on('click', '.red,.black', function () {
+
+    });
+    // $chess.on('mouseenter', '.row div', function () {
+    //   console.log($(this));
+    // })
   }
 
   Chess.prototype = {
-    construct: Chess,
+    constructor: Chess,
     init: function () {
-      let str = '';
-      for (let el in this.chessmen) {
-
+      for (val in this.chessmen) {
+        var el = this.chessmen[val];
+        let cls = '.row' + el.r;
+        this.$chess.find(cls).children('div').eq(el.c).html('<div class="' + el.color + '">' + el.name + '</div>');
       }
-
-      $('#chess').html(str);
     }
   };
   const chess = new Chess();
+
+
 </script>
 </body>
 </html>
