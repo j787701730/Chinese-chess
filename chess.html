@@ -83,127 +83,140 @@
       border: 2px solid black;
     }
 
+    .row .border {
+      border-color: green;
+    }
+
     .row > div:hover {
-      border-color: blue;
+      /*border-color: blue;*/
+    }
+
+    .row .move {
+      border-color: #ccc;
+    }
+
+    .row .kill {
+      border-color: yellow;
     }
   </style>
 </head>
 <body>
 <div id="chess">
-  <div class="row row0">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="row row0" data-x="0">
+    <div data-y="0"></div>
+    <div data-y="1"></div>
+    <div data-y="2"></div>
+    <div data-y="3"></div>
+    <div data-y="4"></div>
+    <div data-y="5"></div>
+    <div data-y="6"></div>
+    <div data-y="7"></div>
+    <div data-y="8"></div>
   </div>
-  <div class="row row1">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="row row1" data-x="1">
+    <div data-y="0"></div>
+    <div data-y="1"></div>
+    <div data-y="2"></div>
+    <div data-y="3"></div>
+    <div data-y="4"></div>
+    <div data-y="5"></div>
+    <div data-y="6"></div>
+    <div data-y="7"></div>
+    <div data-y="8"></div>
   </div>
-  <div class="row row2">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="row row2" data-x="2">
+    <div data-y="0"></div>
+    <div data-y="1"></div>
+    <div data-y="2"></div>
+    <div data-y="3"></div>
+    <div data-y="4"></div>
+    <div data-y="5"></div>
+    <div data-y="6"></div>
+    <div data-y="7"></div>
+    <div data-y="8"></div>
   </div>
-  <div class="row row3">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="row row3" data-x="3">
+    <div data-y="0"></div>
+    <div data-y="1"></div>
+    <div data-y="2"></div>
+    <div data-y="3"></div>
+    <div data-y="4"></div>
+    <div data-y="5"></div>
+    <div data-y="6"></div>
+    <div data-y="7"></div>
+    <div data-y="8"></div>
   </div>
-  <div class="row row4">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="row row4" data-x="4">
+    <div data-y="0"></div>
+    <div data-y="1"></div>
+    <div data-y="2"></div>
+    <div data-y="3"></div>
+    <div data-y="4"></div>
+    <div data-y="5"></div>
+    <div data-y="6"></div>
+    <div data-y="7"></div>
+    <div data-y="8"></div>
   </div>
-  <div class="row row5">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="row row5" data-x="5">
+    <div data-y="0"></div>
+    <div data-y="1"></div>
+    <div data-y="2"></div>
+    <div data-y="3"></div>
+    <div data-y="4"></div>
+    <div data-y="5"></div>
+    <div data-y="6"></div>
+    <div data-y="7"></div>
+    <div data-y="8"></div>
   </div>
-  <div class="row row6">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="row row6" data-x="6">
+    <div data-y="0"></div>
+    <div data-y="1"></div>
+    <div data-y="2"></div>
+    <div data-y="3"></div>
+    <div data-y="4"></div>
+    <div data-y="5"></div>
+    <div data-y="6"></div>
+    <div data-y="7"></div>
+    <div data-y="8"></div>
   </div>
-  <div class="row row7">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="row row7" data-x="7">
+    <div data-y="0"></div>
+    <div data-y="1"></div>
+    <div data-y="2"></div>
+    <div data-y="3"></div>
+    <div data-y="4"></div>
+    <div data-y="5"></div>
+    <div data-y="6"></div>
+    <div data-y="7"></div>
+    <div data-y="8"></div>
   </div>
-  <div class="row row8">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="row row8" data-x="7">
+    <div data-y="0"></div>
+    <div data-y="1"></div>
+    <div data-y="2"></div>
+    <div data-y="3"></div>
+    <div data-y="4"></div>
+    <div data-y="5"></div>
+    <div data-y="6"></div>
+    <div data-y="7"></div>
+    <div data-y="8"></div>
   </div>
-  <div class="row row9">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="row row9" data-x="9">
+    <div data-y="0"></div>
+    <div data-y="1"></div>
+    <div data-y="2"></div>
+    <div data-y="3"></div>
+    <div data-y="4"></div>
+    <div data-y="5"></div>
+    <div data-y="6"></div>
+    <div data-y="7"></div>
+    <div data-y="8"></div>
   </div>
 </div>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="./jquery3.js"></script>
 <script>
   function Chess() {
+    var self = this;
     this.chessmen = {
 //保存所有棋子的初始位置坐标
       redC1: {r: 0, c: 0, x: -144, y: 0, name: '车', color: 'red'},
@@ -242,16 +255,48 @@
     };
     this.$chess = $('#chess');
 
-    this.init();
 
-    let flag = true;
+    let flag = 'red';
 
     this.$chess.on('click', '.red,.black', function () {
 
+      if ($(this).hasClass('red')) {
+        // 红
+        if (flag === 'red') {
+          $('.row>div').removeClass('border');
+          $(this).parent().addClass('border');
+          switch ($(this).html()) {
+            case '帅':
+              self.boosMove('red', $(this));
+              break;
+            case '仕':
+              break;
+            case '相':
+              break;
+            case '马':
+              break;
+            case '车':
+              break;
+            case '炮':
+              break;
+            case '兵':
+              break;
+          }
+        }
+      } else {
+        // 黑
+        if (flag === 'black') {
+          $('.row>div').removeClass('border');
+          $(this).parent().addClass('border');
+        }
+      }
     });
     // $chess.on('mouseenter', '.row div', function () {
     //   console.log($(this));
     // })
+
+
+    this.init();
   }
 
   Chess.prototype = {
@@ -260,8 +305,34 @@
       for (val in this.chessmen) {
         var el = this.chessmen[val];
         let cls = '.row' + el.r;
-        this.$chess.find(cls).children('div').eq(el.c).html('<div class="' + el.color + '">' + el.name + '</div>');
+        this.$chess.find(cls).children('div').eq(el.c).html('<div class="man ' + el.color + '">' + el.name + '</div>');
       }
+    },
+    boosMove: function (type, ths) {
+      // 将帅
+      var x = parseInt(ths.parents('.row').attr('data-x')),
+        y = parseInt(ths.parent().attr('data-y'));
+      console.log(x, y);
+      var arr = [x - 1, x + 1];
+      $.each(arr, function (i, el) {
+        if ($('.row' + x).children().eq(el).children('.black').lenth) {
+          $('.row' + x).children().eq(el).addClass('kill');
+        } else if ($('.row' + x).children().eq(el).children('.red').lenth) {
+
+        } else {
+          $('.row' + x).children().eq(el).addClass('move');
+        }
+      });
+      arr = [y - 1, y + 1];
+      $.each(arr, function (i, el) {
+        if ($('.row' + el).children().eq(x).children('.black').lenth) {
+          $('.row' + el).children().eq(x).addClass('kill');
+        } else if ($('.row' + el).children().eq(x).children('.red').lenth) {
+
+        } else {
+          $('.row' + el).children().eq(x).addClass('move');
+        }
+      });
     }
   };
   const chess = new Chess();
