@@ -15,6 +15,13 @@
       background: url("chess.jpg") no-repeat center;
       background-size: 678px;
       position: relative;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .notice {
+      display: inline-block;
+      vertical-align: top;
     }
 
     .row::after {
@@ -213,6 +220,12 @@
     <div data-x="8"></div>
   </div>
 </div>
+<div class="notice">
+  <div>
+    <button onclick="chess.init()">重新开始</button>
+  </div>
+  <div class="who">红方落子</div>
+</div>
 <script src="./jquery3.js"></script>
 <script>
   function Chess() {
@@ -257,8 +270,12 @@
 
 
     let flag = 'red';
+    this.gameOver = false;
 
     this.$chess.on('click', '.red,.black', function () {
+      if (self.gameOver) {
+        return
+      }
       if (!$(this).parent().hasClass('kill')) {
         $('.row>div').removeClass('border');
         $('.row').children().removeClass('move');
@@ -331,17 +348,54 @@
         $('.row').children().removeClass('move');
         $('.row').children().removeClass('kill');
         if (flag === 'red') {
-          flag = 'black'
+          flag = 'black';
+          $('.who').html('黑方落子');
         } else {
-          flag = 'red'
+          flag = 'red';
+          $('.who').html('红方落子');
         }
+        ;
+
+        var shuaiX = '', shuaiY = '', jiangX = '', jiangY = '';
+        $('.man').each(function () {
+          if ($(this).html() === '帅') {
+            shuaiX = $(this).parent().attr('data-x');
+            shuaiY = $(this).parents('.row').attr('data-y');
+          } else if ($(this).html() === '将') {
+            jiangX = $(this).parent().attr('data-x');
+            jiangY = $(this).parents('.row').attr('data-y');
+          }
+        });
+        if (shuaiX === jiangX) {
+          console.log(shuaiX);
+          for (var i = parseInt(shuaiY) + 1; i < jiangY - shuaiY; i++) {
+            console.log(i);
+            if ($('.row' + i).children().eq(shuaiX).children().length) {
+              break
+            }
+            if (i === jiangY - shuaiY - 1) {
+              self.gameOver = true;
+            }
+          }
+        }
+
         setTimeout(function () {
+          if (self.gameOver) {
+            if (flag === 'red') {
+              alert('红方赢了');
+            } else {
+              alert('黑方赢了')
+            }
+          }
+
           if (child === '帅') {
+            self.gameOver = true;
             alert('黑方赢了');
           } else if (child === '将') {
-            alert('红方赢了')
+            self.gameOver = true;
+            alert('红方赢了');
           }
-        }, 300)
+        }, 100)
       });
 
     this.init();
@@ -350,11 +404,13 @@
   Chess.prototype = {
     constructor: Chess,
     init: function () {
+      this.gameOver = false;
       for (val in this.chessmen) {
         var el = this.chessmen[val];
         let cls = '.row' + el.r;
         this.$chess.find(cls).children('div').eq(el.c).html('<div class="man ' + el.color + '">' + el.name + '</div>');
       }
+      $('.who').html('红方落子');
     },
     getPos: function (ths) {
       var y = parseInt(ths.parents('.row').attr('data-y')),
