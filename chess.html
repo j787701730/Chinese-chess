@@ -405,12 +405,14 @@
     constructor: Chess,
     init: function () {
       this.gameOver = false;
+      $('.row').children('div').empty();
       for (val in this.chessmen) {
         var el = this.chessmen[val];
         let cls = '.row' + el.r;
         this.$chess.find(cls).children('div').eq(el.c).html('<div class="man ' + el.color + '">' + el.name + '</div>');
       }
       $('.who').html('红方落子');
+      $('div').removeClass('border move kill');
     },
     getPos: function (ths) {
       var y = parseInt(ths.parents('.row').attr('data-y')),
