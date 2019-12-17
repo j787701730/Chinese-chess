@@ -269,7 +269,7 @@
     this.$chess = $('#chess');
 
 
-    let flag = 'red';
+    this.flag = 'red';
     this.gameOver = false;
 
     this.$chess.on('click', '.red,.black', function () {
@@ -283,7 +283,7 @@
 
         if ($(this).hasClass('red')) {
           // 红
-          if (flag === 'red') {
+          if (self.flag === 'red') {
             $(this).parent().addClass('border');
             switch ($(this).html()) {
               case '帅':
@@ -311,7 +311,7 @@
           }
         } else {
           // 黑
-          if (flag === 'black') {
+          if (self.flag === 'black') {
             $(this).parent().addClass('border');
             switch ($(this).html()) {
               case '将':
@@ -347,11 +347,11 @@
         $(this).html(man);
         $('.row').children().removeClass('move');
         $('.row').children().removeClass('kill');
-        if (flag === 'red') {
-          flag = 'black';
+        if (self.flag === 'red') {
+          self.flag = 'black';
           $('.who').html('黑方落子');
         } else {
-          flag = 'red';
+          self.flag = 'red';
           $('.who').html('红方落子');
         }
         ;
@@ -367,9 +367,7 @@
           }
         });
         if (shuaiX === jiangX) {
-          console.log(shuaiX);
           for (var i = parseInt(shuaiY) + 1; i < jiangY - shuaiY; i++) {
-            console.log(i);
             if ($('.row' + i).children().eq(shuaiX).children().length) {
               break
             }
@@ -381,7 +379,7 @@
 
         setTimeout(function () {
           if (self.gameOver) {
-            if (flag === 'red') {
+            if (self.flag === 'red') {
               alert('红方赢了');
             } else {
               alert('黑方赢了')
@@ -405,6 +403,7 @@
     constructor: Chess,
     init: function () {
       this.gameOver = false;
+      this.flag = 'red';
       $('.row').children('div').empty();
       for (val in this.chessmen) {
         var el = this.chessmen[val];
